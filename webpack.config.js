@@ -5,10 +5,8 @@ module.exports = {
   mode: 'production',
   entry: {
     content: './src/content.js',
-    background: './src/background.js',
-    // manifest: './manifest.json',
-    // icons: './icons/*'
-  },  // Chemin du fichier d'entrée de votre extension
+    background: './src/background.js'
+  }, 
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/src/'),

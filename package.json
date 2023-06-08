@@ -1,12 +1,11 @@
 {
-  "name": "test",
+  "name": "ExtensionChromeMail",
   "version": "1.0.0",
   "dependencies": {
     "babel": "^6.23.0",
-    "emailjs-com": "^3.2.0",
-    "path-fixxer": "^0.3.2"
+    "emailjs-com": "^3.2.0"
   },
-  "main": "background.js",
+  "main": "content.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config webpack.config.js",
@@ -21,7 +20,6 @@
     "@babel/preset-env": "^7.22.4",
     "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.1",
     "json-loader": "^0.5.7",
     "webpack": "^5.86.0",
