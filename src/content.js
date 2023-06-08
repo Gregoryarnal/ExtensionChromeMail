@@ -1,4 +1,5 @@
 import emailjs from 'emailjs-com';
+import email from '../config.js';
 
 console.log('Extension chargée !');
 
@@ -12,10 +13,10 @@ if (targetElement) {
 
 
 function sendEmail() {
-    var userId = 'jb6fRN2kojZiE_17v'; // Remplacez par votre User ID EmailJS
-    var serviceId = 'service_w1e5kf8'; // Remplacez par votre Service ID EmailJS
-    var templateId = 'template_duw6lmp'; // Remplacez par votre Template ID EmailJS
-  
+    var userId = email.email.userId; // Remplacez par votre User ID EmailJS
+    var serviceId = email.email.serviceId; // Remplacez par votre Service ID EmailJS
+    var templateId = email.email.templateId; // Remplacez par votre Template ID EmailJS
+
     var templateParams = {
       to_name: 'gregory.arnal@hotmail.com', // Nom du destinataire
       message: 'Contenu de l\'e-mail' // Contenu de l'e-mail

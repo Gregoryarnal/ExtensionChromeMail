@@ -13,7 +13,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'node_modules'),'.js', '.json']
+    modules: [path.resolve(__dirname, 'node_modules'),'.js', '.json'],
   },
   module: {
     rules: [
@@ -33,7 +33,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: './*.json', to: '../[name][ext]' },
-        { from: './icons', to: '../icons/[name][ext]' }
+        { from: './icons', to: '../icons/[name][ext]' },
+        { from: './config.js', to: '../[name][ext]' }
       ]
     })
   ]
