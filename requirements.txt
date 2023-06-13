@@ -1,0 +1,5 @@
+requests
+cx-Freeze
+bs4
+PyAutoGUI
+pyperclip

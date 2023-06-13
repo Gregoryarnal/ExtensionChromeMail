@@ -1,32 +1,70 @@
-import emailjs from 'emailjs-com';
-import email from '../config.js';
+"use strict";
+// import setimmediate from 'setimmediate';
+// const nodemailer = require("nodemailer");
+// const sgMail = require('@sendgrid/mail')
+console.log('Extension chargée : ' + new Date());
+// const util = require("util");
+// const execFile = util.promisify(require("child_process").execFile);
 
-console.log('Extension chargée !');
+// async function lsDir() {
+//   const { error, stdout, stderr } = await execFile("ls", ["-l"]);
+//   console.log(`External Program's output:\n ${stdout}`);
+// }
+// lsDir();
+var targetElement = document.getElementById('grid_profile_mainactions_div');
 
-var targetElement = document.getElementById('question-header');
+// console.log('targetElement : ' + targetElement.textContent);
+
+// fse.copySync('build/exe.macosx-10.9-universal2-3.9', '/test', (err) => {
+//   if (err) throw err;
+//   console.log('source.txt was copied to destination.txt');
+console.log('Extension chargée : ' + new Date());
+// });
 
 if (targetElement) {
   targetElement.addEventListener('click', function() {
-    sendEmail();
+    setTimeout(scrapdata,3000);
   });
 }
 
-
-function sendEmail() {
-    var userId = email.email.userId; // Remplacez par votre User ID EmailJS
-    var serviceId = email.email.serviceId; // Remplacez par votre Service ID EmailJS
-    var templateId = email.email.templateId; // Remplacez par votre Template ID EmailJS
-
-    var templateParams = {
-      to_name: 'gregory.arnal@hotmail.com', // Nom du destinataire
-      message: 'Contenu de l\'e-mail' // Contenu de l'e-mail
-    };
+function scrapdata(){
+  var iframe = document.querySelectorAll('[id^="ifr"]')[0];
+  var frame_document = iframe.contentWindow.document;
+  var statut = frame_document.getElementById("id_statut");
   
-    // Envoyer l'e-mail via EmailJS
-    emailjs.send(serviceId, templateId, templateParams, userId)
-      .then(function(response) {
-        alert('E-mail envoyé avec succès !');
-      }, function(error) {
-        alert('Erreur lors de l\'envoi de l\'e-mail.');
-      });
+  var email = frame_document.getElementById("id_email");
+  var save_btn = frame_document.getElementById("id_save");
+
+  save_btn.addEventListener('click', function() {
+    if (statut.selectedIndex==0){ // correspond au statut nouveau
+      setTimeout(() => {  
+        if (frame_document.getElementById("head_FormHrProfile").getElementsByClassName('errorboxtable').length==0){
+          console.log("submitted");
+          sendEmail(email.value);
+        }else{
+          console.log("failed");
+        }
+      }, 2000);
+    }
+  });
+
+}
+
+async function sendEmail(to_email) {
+    console.log("Send mail to " + to_email);
+
+    g = document.createElement('div');
+    g.setAttribute("id", "tmp_email");
+    document.body.appendChild(g)
+
+    var html = '<a hidden id="submit_email" href="webrun:C://Users/gregoryarnal/Documents/dev/ExtensionChromeMail/dist/build/exe.macosx-10.9-universal2-3.9/mail" type="submit">';
+    html += '<button type="submit" style="width:70px; height:70px;" class="white-button">';
+    html += '</button>';
+    html += '</a>';
+
+    document.getElementById("tmp_email").innerHTML = html;
+
+    document.getElementById("submit_email").click();
   }
+
+
