@@ -3,9 +3,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 
-sender_email = "gregory.arnal@hotmail.com"
-receiver_email = "gregory.arnal@icloud.com"
-password = "jothys-rantak-raCji3"
+sender_email = ""
+receiver_email = ""
+password = ""
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "OCSI a une opportunité pour vous !"

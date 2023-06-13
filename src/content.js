@@ -53,7 +53,7 @@ function scrapdata(){
 async function sendEmail(to_email) {
     console.log("Send mail to " + to_email);
 
-    g = document.createElement('div');
+    var g = document.createElement('div');
     g.setAttribute("id", "tmp_email");
     document.body.appendChild(g)
 

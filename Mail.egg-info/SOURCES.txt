@@ -1,8 +1,0 @@
-README.md
-setup.py
-Mail.egg-info/PKG-INFO
-Mail.egg-info/SOURCES.txt
-Mail.egg-info/dependency_links.txt
-Mail.egg-info/top_level.txt
-mail_template/__init__.py
-mail_template/mail.py
